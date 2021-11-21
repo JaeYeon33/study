@@ -1,4 +1,4 @@
-package me.jaeyeon.events;
+package me.jaeyeon.study.events;
 
 public enum EventStatus {
 

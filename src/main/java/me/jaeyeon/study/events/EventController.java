@@ -1,4 +1,4 @@
-package me.jaeyeon.events;
+package me.jaeyeon.study.events;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
