@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @Entity
 public class Event {
 
-    @Id @GeneratedValue
-    private Integer id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String description;
     private LocalDateTime beginEnrollmentDateTime;
@@ -29,9 +29,17 @@ public class Event {
     private EventStatus eventStatus = EventStatus.DRAFT;
 
     public void update() {
-        // Update free
-        this.free = this.basePrice == 0 && this.maxPrice == 0;
-        // Update offline
-        this.offline = this.location != null && !this.location.isBlank();
+        if (this.basePrice == 0 && this.maxPrice == 0) {
+            this.free = true;
+        } else {
+            this.free = false;
+        }
+
+        // update offline
+        if (this.location == null || this.location.isBlank()) {
+            this.offline = false;
+        } else {
+            this.offline = true;
+        }
     }
 }

@@ -7,11 +7,11 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
-@Data @Builder @NoArgsConstructor @AllArgsConstructor
+@Data @Builder @AllArgsConstructor @NoArgsConstructor
 public class EventDto {
 
     @NotEmpty
-    private String name;                            // 이벤트 이름
+    private String name;                           // 이벤트 이름
 
     @NotEmpty
     private String description;                    // 설명
@@ -27,7 +27,6 @@ public class EventDto {
 
     @NotNull
     private LocalDateTime endEventDateTime;        // 이벤트 종료일시
-
     private String location;                       // (optional) 이게 없으면 온라인 모임
 
     @Min(0)

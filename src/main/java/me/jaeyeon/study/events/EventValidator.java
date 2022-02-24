@@ -8,8 +8,10 @@ import java.time.LocalDateTime;
 @Component
 public class EventValidator {
     public void validate(EventDto eventDto, Errors errors) {
+        // 비즈니스 로직에 위배되는 경우
+        // 무제한 경매가 아닌데 basePrice > maxPrice인 경우 잘못됨
         if (eventDto.getBasePrice() > eventDto.getMaxPrice() && eventDto.getMaxPrice() > 0) {
-            errors.reject("wrongPrices", "Values for prices are wrong");
+            errors.reject("wrongPrices", "Values to prices are wrong.");
         }
 
         LocalDateTime endEventDateTime = eventDto.getEndEventDateTime();
